@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, {useCallback, useState} from 'react';
 import {
   View,
   TextInput,
@@ -6,11 +7,14 @@ import {
   Text,
   Alert,
   Linking,
+  ImageBackground,
 } from 'react-native';
 import {styles} from './WhatsApp.styles';
 import {isValidEgyptianPhoneNumber} from '../../utils/EgyptianNumbers';
+import {IMAGES} from '../../assets';
+import {useFocusEffect} from '@react-navigation/native';
 
-const WhatsApp = () => {
+const WhatsApp = ({navigation}) => {
   const [number, setNumber] = useState('');
   let phoneWithCountryCode = '+20';
 
@@ -33,21 +37,39 @@ const WhatsApp = () => {
     }
   };
 
+  useFocusEffect(
+    useCallback(() => {
+      const onBackPress = () => {
+        // Prevent navigation back to splash screen
+        return true; // Return true to prevent default behavior (i.e., navigating back)
+      };
+
+      // Add event listener for back button press
+      const backHandler = navigation.addListener('beforeRemove', onBackPress);
+
+      // Clean up the event listener on component unmount
+      return () => backHandler.remove();
+    }, []),
+  );
+
   return (
-    <View style={styles.container}>
+    <ImageBackground
+      source={IMAGES.home}
+      style={styles.container}
+      resizeMode="contain">
       <Text style={styles.inputLabel}>Enter The Number</Text>
       <TextInput
         placeholder="xxxx-xxx-xxx"
+        placeholderTextColor={'#999'}
         onChangeText={text => setNumber(text)}
         value={number}
         keyboardType="phone-pad"
-        maxLength={10}
         style={styles.input}
       />
       <TouchableOpacity style={styles.button} onPress={handleSendMessage}>
-        <Text style={styles.buttonText}>Send Message</Text>
+        <Text style={styles.buttonText}>Send</Text>
       </TouchableOpacity>
-    </View>
+    </ImageBackground>
   );
 };
 

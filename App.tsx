@@ -1,21 +1,17 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import AppStack from './src/navigation/stack';
+import {SafeAreaView} from 'react-native';
 
-import {SafeAreaView, StyleSheet} from 'react-native';
-import WhatsApp from './src/pages/whatsapp/WhatsApp';
-
-function App() {
+const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <WhatsApp />
+    <SafeAreaView style={{flex: 1}}>
+      <NavigationContainer>
+        <AppStack />
+      </NavigationContainer>
     </SafeAreaView>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 24,
-  },
-});
+};
 
 export default App;
