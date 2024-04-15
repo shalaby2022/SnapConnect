@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">SnapConnect</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">5fc6f4b8-8984-4950-a671-5b8cb90d6fcc</string>
+    <string name="CodePushPublicKey">-----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzHkE1vwxIUmxWMg4uau8
+    wH3AepFB+E/l2MZsTIiMBYr3qhnYjAf2kUSmHKqTauNjWfh3zO8Oeft/27p4G68P
+    pCecuiEzji/ivvnjEoeCK3HU3SbuT8crES9y9BrG3MOXuA/4bu3dNBZCUOa7m3+0
+    4Q4MTH4CjShS8JnphcFkqPyS/LAmBeYObh/YKg93WnDazcVZe76+Ydc/SWbMZphC
+    h8UizVb/dIRutV2HvwmYhrugVIa7Al9LjxH4idoP34gRNR017WnhToqXGJR1mtcf
+    MAhUZr47MoZEZLXzpBqJ5lDP4tXDNAB4WynbXKMnfG2imvdUgdxbPZuVYylrfEsH
+    9QIDAQAB
+    -----END PUBLIC KEY-----</string>
+  <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">DO_NOT_ASK_JAVASCRIPT</string>
+  <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
 </resources>
